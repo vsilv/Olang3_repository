@@ -1,0 +1,82 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage{cmap}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}	% Kodierung sollte sich ohne Probleme mit latin1 ersetzen lassen
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[left=2cm, right=2cm]{geometry}
+\usepackage{fancyhdr}		% Paket f\"ur Kopf- und Fu\ss{}zeile
+\usepackage[colorlinks,linkcolor=blue]{hyperref} % Verwendung von Links und sch\"onere Darstellung als default
+
+%Kopf- und Fußzeile
+\pagestyle{fancy}		% Kopf- und Fußzeile anlegen
+\headsep=1.5cm			% gr\"o\ss{}erer Platz zwischen Kopfzeile und Text
+\fancyhead{} 			% leeren der Kopfzeile
+\fancyhead[L]{Olang 2012}
+\fancyhead[R]{Karla Roszeitis -- Entropie \& Alg. Komplexit\"at}
+\fancyfoot{} 			% leeren der Fußzeile
+\fancyfoot[C]{\oldstylenums{\thepage}}	% Seitenzahl mit sch\"onen Ziffern
+
+\begin{document}
+\section{verschieden Entropien -- Entropie von Zeichenketten}
+\subsection{Block-Entropie}
+\label{Block-Entropie} % macht Verweis auf Kapitelnummer mit /ref m\"oglich
+Die Blockentropie ist die einfachste Berechnungsvorschrift, um die Zuf\"alligkeit einer Zeichenkette auszudr\"ucken. Kann man das n\"achste Zeichen sicher vorhersagen, so betr\"agt die Blockentropie 0, ansonsten ist sie gr\"o\ss{}er 0. Der gr\"o\ss{}te Entropiewert bei N Elementen wird durch gleiche Wahrscheinlichkeit der N Ergebnisse erzielt. 
+
+Wenn $P\left( W_N \right)$ die Wahrscheinlichkeit ist, ein gegebenes \glqq Wort\grqq\ (also eine bestimmte Zeichenkette, zum Beispiel aus Nullen und Einsen oder Buchstaben) mit $N$ Zeichen von der Quelle ausgegeben zu bekommen, dann ist die $N$-Block-Entropie definiert als:
+\[
+  H_N = - \sum_{\left\{W_N\right\}} P\left(W_N\right) \ln P\left(W_N\right) \text{.}
+\]
+
+\begin{table}[hb]	% Flie\ss{}umgebung f\"ur Tabellen mit Angabe des Ortes (h..here, falls nicht m\"oglich b..bottom)
+\centering
+\begin{tabular}{l|l|c||c} 
+  Beispiel & Annahme & Block-Entropie & Kompression um\\
+  \hline
+  W\"urfel & $P\left( n \right) = \frac{1}{6}$ f\"ur $n=1..6$ & $H_1 = 1,79$ & 0 \% \\
+  gezinkter W\"urfel & $P\left( n \right) = \frac{1}{10}$ f\"ur $n=1..5$, $P\left( 6 \right) = \frac{1}{2}$ & $H_1 = 1,50$ & 16 \% \\
+  30 Buchstaben && $H_1 = 3.40$ & \\
+  deutsches Alphabet & mit Buchstabenh\"aufigkeit & $H_1 = 2.88$ & 15 \% \\
+  deutsches Sprache & Bibel & & 88 \% \\
+\end{tabular}
+\caption{Zahlenbeispiele f\"ur Blockentropie (Kapitel \ref{Block-Entropie}) und Kompressierbarkeit einer so erzeugten Zeichenkette (Kapitel \ref{Kompression}). Bei diesen Beispielen stimmt durch die Unabh\"angigkeit von der vorhergehenden Sequenz die Block-Entropie mit der Shannon-Entropie \"uberein. Dies gilt nicht f\"ur die deutsche Sprache.}
+\end{table}
+
+\subsection{Shannon-Entropie}
+Claude Elwood Shannon verallgemeinerte diesen Begriff auch auf Zeichenketten, bei denen das n\"achste Zeichen statistisch von den vorhergehenden abh\"angt (zum Beispiel ein deutscher Text). Die Shannon-Entropie ist dabei der Grenzwert f\"ur unendlich viele bereits bekannte Zeichen und wird \"uber die Blockentropie definiert:
+\[
+  h_{\text{Sh}} = \lim_{N \rightarrow \infty} \frac{H_N}{N}
+\]
+
+\subsection{Kolmogorov-Sinai-Entropie}
+Dieses Konzept kann nun auf Trajektorien im Phasenraum erweitert werden, um dynamischen Systemen eine Entropie zuzuweisen. Daf\"ur betrachten wir eine Trajektorie in einem begrenzten Gebiet des Phasenraumes, welches in endliche Zahl an Untergebieten unterteilt sei. Die Unterteilung sei $\mathcal{A}$. In einer Abfolge diskreter Zeiten ($t=\tau \cdot j$, $j=1, 2, 3, \ldots$) legt die Trajektorie nun eine Sequenz fest, n\"amlich in welchem Gebiet sie sich jeweils zu den Messzeiten befindet. Dies ist zum Beispiel durch Poincar\`e-Abbildungen realisierbar. Die Kolmogorov-Sinai-Entropie (kurz KS-Entropie) ist dann:
+\begin{align*}
+  h_{\text{KS}} = \sup_{\mathcal{A}} h\left( \mathcal{A} \right) &= \sup_{\mathcal{A}} \frac{1}{\tau} \lim_{N \rightarrow \infty} \frac{1}{N} H_N \left( \mathcal{A} \right)
+\end{align*}
+Das hei\ss{}t, sie ist der obere Grenzewert der Entropie \"uber den Unterteilungen $\mathcal{A}$ des Phasenraumes. Praktisch ist die KS-Entropie in einzelnen F\"allen berechenbar, in den meisten nur absch\"atzbar. Sie ist ein Ma\ss{} f\"ur Chaos: in chaotischem System ist $h_{\text{KS}} = \infty$. Dies entspricht einer vergleichsweise strengen Definition von Chaos.
+
+Die KS-Entropie ist immer kleiner oder gleich der Summe aller positiven Lyapunov-Exponenten. F\"ur typische Hamiltonische Systeme gilt sogar Gleichheit.
+
+\section{Algorithmische Komplexit\"at}
+\subsection{Definition}
+F\"ur eine Sequenz s der L\"ange $N$ ist $K_{\mathcal{M}}\left( \text{s} \right)$ definiert als Bitl\"ange des k\"urzesten Computerprogramms auf einem Rechner $\mathcal{M}$, welches die Sequenz produziert und danach stoppt. Dies ist bedingt abh\"angig vom Computer: Verschiedene Computer ben\"otigen zwar unterschiedlich lange Programme, es gibt jedoch sogenannte \glqq universale Rechner\grqq , welche -- bis auf eine \"Ubersetzungsvorschrift oder einen kurzen anderen Code unabh\"angig von der gew\"unschten Sequenz -- immer mit dem k\"urzesten Code auskommen: 
+\[ K_{\mathcal{U}} \left( \text{s} \right) \leq K_{\mathcal{M}} \left( \text{s} \right) + C_{\mathcal{M U}}
+\]
+Au\ss{}erdem gilt f\"ur zwei universale Rechner $\mathcal{U}'$ und $\mathcal{U}''$, dass sich ihre Codes unabh\"angig von der Sequenz maximal um eine feste Anzahl Zeichen unterscheiden:
+\[
+  \left| K_{\mathcal{U}'} \left( \text{s} \right) - K_{\mathcal{U}''} \left( \text{s} \right)\right| \leq C_{\mathcal{U}'{\mathcal{U}''}}
+\]
+
+\subsection{Kompression}
+\label{Kompression}
+Das \textbf{Shannon-Theorem} stellt nun die Entropie mit der Komplexit\"at (also der m\"oglichen Kompression) in Verbindung: Enth\"alt ein Alphabet $m$ Zeichen, so gibt $h_{\text{Sh}}$ ein Ma\ss{} f\"ur die maximale Kompression einer Zeichenkette s aus $N$ Zeichen an:
+\[ K \left(\text{s}\right) \geq \frac{h_{\text{Sh}}}{\log m} N \]
+
+\begin{thebibliography}{}
+  \bibitem{Castiglione} Patrizia Castiglione, Massimo Falcioni, Annick Lesne, and Angelo Vulpiani: \emph{Chaos and Coarse Graining in Statistical Mechanics}, Cambridge University Press, Cambridge 2008
+  \bibitem{Ott} Edward Ott: \emph{Chaos in Dynamical Systems}, Cambridge University Press, Cambridge 1993
+  \bibitem{scho} Marcus Hutter, \url{http://www.scholarpedia.org/article/Algorithmic_complexity}, Stand 7. August 2012
+\end{thebibliography}
+\end{document}
