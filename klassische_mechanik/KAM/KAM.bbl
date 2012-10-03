@@ -1,8 +1,16 @@
 \begin{thebibliography}{1}
 
-\bibitem{Beispielbuch}
-Harold~Stanley Heaps.
-\newblock {\em Information Retrieval -- Computational and Theoretical Aspects}.
-\newblock Academic Press, 1978.
+\bibitem{Knauf}
+Andreas Knauf.
+\newblock {\em Mathematische Physik}.
+
+\bibitem{Tabor}
+Micheal Tabor.
+\newblock {\em Chaos and Integrability in Nonlinear Systems}.
+
+\bibitem{Wimberger}
+Sandro Wimberger.
+\newblock {\em Nonlinear Dynamics and Quantum Chaos}.
+\newblock 2012.
 
 \end{thebibliography}

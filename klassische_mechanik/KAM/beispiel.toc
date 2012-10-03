@@ -1,4 +1,0 @@
-\select@language {ngerman}
-\contentsline {part}{I\hspace {1em}Wahloser Text}{1}{part.1}
-\contentsline {section}{\numberline {1}Kurzfassung}{1}{section.1}
-\contentsline {subsection}{\numberline {1.1}Unterkapitel}{1}{subsection.1.1}
