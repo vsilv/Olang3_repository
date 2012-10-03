@@ -78,23 +78,149 @@
 \newpage
 \setcounter{page}{1}
 \part{Wahloser Text}
-\section{Kurzfassung}
-Beispielzitat: \cite{Beispielbuch} 
-Beispielformel in Text $1+1=2$
-\begin{figure}[!h]\centering
-
-    \includegraphics[width=12cm]{Beispielbild.jpg}
-
-   \caption{
-	   blablabla
-}
-\label{fig1:Beispieltext}
-\end{figure}
-\subsection{Unterkapitel}
-\begin{equation}
-P(x)=\frac{1}{x^{s}\cdot\zeta(s)}
+\section{Störungstheorie}
+Die Störungstheorie behandelt dynamische, nicht explizit lösbare Systeme, über die sich
+mithilfe bekannter, lösbarer Systeme Aussagen treffen lassen. Wie stark diese Aussagen sind,
+hängt von einigen Bedingungen ab, die sich herleiten lassen. In dieser kurzen Einführung wollen
+wir allerdings nur Systeme betrachten, die beinahe integrabel sind und dann auf integrable Systeme zurückführen.
+Wir wollen nun ein nicht-integrables System $H_\epsilon$ durch das integrable System $H_0$ ausdrücken, wobei wir eine Störung $H_1$ hinzufügen, multipliziert mit einem Faktor $\epsilon \ll 1$:
+\begin{equation}\label{eq:eq1}
+H_\epsilon (I,\theta) = H_0(I) + \epsilon H_1(I,\theta)
 \end{equation}
-Referenz: \ref{fig1:Beispieltext}
-\bibliographystyle{plain}
+Wobei ersichtlich wird, dass $H_\epsilon$ und $H_1$ von $I$ und von $\theta$ abhängen, 
+also nicht integrabel sind, und $H_0$ nur von $I$ abhängt, da es der integrabele Teil von $H_\epsilon$ ist.
+Die Idee ist nun, für ein nicht-integrables System die exakte Lösung des
+integrablen Teils zu finden und die Störung rekursiv zu berechnen (siehe \cite{Tabor} auf Seite 90).
+Für die allgmeine Herangehensweise bei mehr als zwei Freiheitsgraden treten Probleme auf.
+Wir suchen nun neue Winkel-Wirkungsvariablen $I',\theta'$, sodass $H(I,\theta)=H(I')$ dargestellt werden kann. 
+Nun können wir die Winkelwirkungsvariablen mit der erzeugenden Funktion $S(I',\theta)$ darstellen
+(also als Mischung zwischen den neuen und den alten Winkelwirkungsvariablen):
+\begin{equation}
+	I=\frac{\partial S(I',\theta)}{\partial \theta} \;\;\; \theta' = \frac{\partial S(I',\theta)}{\partial I'}
+\end{equation}
+Nun setzen wir $S$ in $H$ ein:
+\begin{equation}
+H(\frac{\partial S(I',\theta)}{\partial \theta},\theta) = H'(I')
+\end{equation}
+Die Frage ist nun, wie $S$ aussieht. Wir gehen jetzt davon aus, dass wir $S$ als unendliche Reihe in $\epsilon$
+entwicklen können (Näheres, warum das möglich ist in \cite{Knauf} in Kapitel 15):
+\begin{equation}
+S=S_0+\epsilon S_1 + \epsilon^2 S_2 + \cdots \\
+\end{equation}
+wobei wir die Anfangsbedingung 
+$S_0=I' \cdot \theta $ vorraussetzen, daraus folgt:
+\begin{equation*}
+\Rightarrow \frac{\partial S_0}{\partial \theta}=I'
+\end{equation*}
+Somit ist
+\begin{equation}
+I= I' + \epsilon \frac{\partial S_1}{\partial \theta} + \epsilon^2 \frac{\partial S_2}{\partial \theta} +\cdots
+\end{equation}
+Dies können wir in \ref{eq:eq1} einsetzen:
+\begin{equation*}
+		H'(I')=H_0(I' + \epsilon \frac{\partial S_1}{\partial \theta}
+	+ \epsilon^2 \frac{\partial S_2}{\partial \theta} +\cdots)+\epsilon H_1(I' +
+\epsilon \frac{\partial S_1}{\partial \theta} + \epsilon^2 \frac{\partial S_2}{\partial \theta} +\cdots,\theta)\\
+\end{equation*}
+Nun entwickeln wir das Innere der Klammern (allerdings nur bis zum ersten Grad) an der Stelle $I=I'$:
+\begin{equation*}
+	H'(I')=\underbrace {\frac{\partial H_0}{\partial I}\Big|_{I=I'}I'}_{= H_0(I')}+ \epsilon \frac{\partial H_0}{\partial I}\Big|_{I=I'}
+	\frac{\partial S_1}{\partial \theta}
+	+ \epsilon^2 \frac{\partial H_0}{\partial I}\Big|_{I=I'}\frac{\partial S_2}{\partial \theta} +\cdots+\epsilon 
+\underbrace{\frac{\partial H_1}{\partial I}\Big|_{I=I'}I'}_{=H_1(I',\theta)} +
+\epsilon^2\frac{\partial H_1}{\partial I}\Big|_{I=I'} \frac{\partial S_1}{\partial \theta} +
+\epsilon^3\frac{\partial H_1}{\partial I} \Big|_{I=I'}\frac{\partial S_2}{\partial \theta} +\cdots
+\end{equation*}
+Vernachlässigt man nun Terme höherer Ordnungen von $\epsilon$, können wir die Gleichung vereinfachen:
+\begin{equation*}
+	H'(I')\approx H_0(I')+ \epsilon \frac{\partial H_0}{\partial I}\Big|_{I=I'}
+	\frac{\partial S_1}{\partial \theta}
+	+\epsilon 
+	H_1(I',\theta) 
+\end{equation*}
+Wir nehmen nun an, dass $H_1$ und $S_1$ periodisch in $\theta$ sind (stetig natürlich auch). Deshalb dürfen
+wir diese in eine Fourierreihe entwickeln:
+\begin{equation*}
+H_1(I')=\sum_{m}^{}H_{1,m}(I')\exp(i m \theta)
+\end{equation*}
+\begin{equation*}
+S_1(I')=\sum_{m}^{}S_{1,m}(I')\exp(i m \theta)
+\end{equation*}
+wobei $m$ die Koeffizienten der Fourierreihe sind. Diese Darstellungen können wir nun einsetzen:
+
+\begin{equation*}
+	H'(I')\approx H_0(I')+ \epsilon \frac{\partial H_0}{\partial I}\Big|_{I=I'}
+	\sum_{m}^{}(i m)S_{1,m}(I')\exp(i m \theta)
++
+	\epsilon 
+	\sum_{m}^{}H_{1,m}(I')\exp(i m \theta)
+\end{equation*}
+Es ist ersichtlich, dass immer noch eine $\theta$-Abhängigkeit besteht. Nun können wir eine Bedingung aufstellen,
+dass $H'$ nicht von $\theta$ abhängig ist, nämlich dann, wenn der Teil, der $\theta$ abhängig ist, null wird:
+\begin{equation*}
+\sum_{m}{}\exp(im\theta)\Big(im\frac{\partial H_0}{\partial I}\Big|_{I=I'}S_{1,m}(I')+H_{1,m}(I')\Big)\stackrel{!}{=}0
+\end{equation*}
+\begin{equation*}
+	\Leftrightarrow im\frac{\partial H_0}{\partial I}\Big|_{I=I'}S_{1,m}(I')+H_{1,m}(I')\stackrel{!}{=}0
+\end{equation*}
+\begin{equation*}
+	\Leftrightarrow im\frac{\partial H_0}{\partial I}\Big|_{I=I'}S_{1,m}(I')\stackrel{!}{=}
+-H_{1,m}(I')
+\end{equation*}
+\begin{equation*}
+	\Leftrightarrow S_{1,m}(I')\stackrel{!}{=}
+\frac{iH_{1,m}(I')}{m\frac{\partial H_0}{\partial I}\Big|_{I=I'}}
+\end{equation*}
+Da laut der Definition der Winkelvariablen gilt: $\frac{\partial H_0}{\partial I}
+=\frac{\mathrm{d}\theta }{\mathrm{d} t}:=\omega$
+(wobei $\omega$ die Winkelgeschwindigkeit ist, mit der sich eine einzelne Phasenraumtrajektorie auf dem Torus
+bewegt) können wir nun sagen:
+\begin{equation*}
+	\Leftrightarrow S_{1,m}(I')\stackrel{!}{=}
+\frac{iH_{1,m}(I')}{m\cdot \omega}
+\end{equation*}
+An dieser Stelle wird nun ein Problem ersichtlich, welche das "Problem der kleinsten Teiler" genannt wird.
+Bis jetzt sind wir immer von einer Dimension ausgegangen, doch sämtliche Gleichungen können mehrdimensional
+aufgefasst werden (Sodass alle Variablen zu Vektoren werden) was auch bei den meisten Systemen der Fall ist.
+Somit ist also auch $m$ und $\omega$ mehrdimensional, das Produkt ist also ein Skalarprodukt. 
+Wir betrachten also $m\omega=m_1\omega_1 + m_2\omega_2 + \cdots$ mit soviel Einträgen,
+um wieviel Dimensionen es sich handelt. Da die $m$'s alle ganzzahlig sind, kann die Summe genau dann null werden,
+wenn die $\omega$'s kommensurabel sind, d.h. wenn sie rational abhängig sind und deshalb eine Linearkombination
+existiert, sodass die Summe null ergiebt (analog zu der Linearen Unabhängigkeit von Vektoren).
+Nun kann aber für jeden beliebigen Vektor $\omega$ der Vektor $m$ so gewählt werden, dass das Skalarprodukt 
+beliebig klein wird. Dann divergiert allerdings die Summe, und es gibt keine Möglichkeit, eine Approximation zu
+finden. \\
+Für dieses Problem gab es lange keine Lösung, bis Kolmogorov, Arnold und Moser im KAM-Theorem eine Möglichkeit
+fanden, die Reihe trotzdem konvergieren zu lassen. Der Beweis benutzt ein rekursives Verfahren (superkonvergentes
+Verfahren), das Ähnlichkeiten mit dem Newton-Verfahren aufweist. Das Ergebnis ist folgendes:\\
+KAM - Theorem\\
+Wenn die Störung $\epsilon$ klein genug ist, dann kann das nicht-integrable System durch ein 
+integrables approximiert werden, wenn folgende Bedingungen \cite{Wimberger} erfüllt sind:
+\begin{itemize}
+\item Das System ist nichtlinear: 
+\begin{equation}
+\frac{\partial^2 H(I')}{\partial I_i \partial I_j} )\neq 0 \forall i,j
+\end{equation}
+\item Die Frequenzen $\omega$ sind diophantisch (das ist noch etwas stärker als rational unabhängig):
+\begin{equation}
+\forall k \in \mathbb{Z} : |k\cdot \omega (I) | \geq \frac{\gamma}{|k|^\tau}
+\end{equation}
+Wobei der Parameter $\gamma$ von der Größe der Störung und der $\tau$ von der Nichtlinearität abhängt.
+\item Regularität: Wie wir in der Herleitung schon gesehen haben, wird an einigen Stellen Stetigkeit und auch
+(n-fache) Differenzierbarkeit erforderlich. 
+\end{itemize}
+Als logische Konsequenz des Theorems lässt sich nun aussagen, dass ein System stabiler ist, 
+je irrationaler die Frequenzen (bzw je "diophantischer" der Frequenzvektor) sind. 
+Das Maß der Irrationalität lässt sich dadurch bestimmten, wie gut und wie schnell eine Zahl sich durch 
+rationale Zahlen darstellen lässt, also durch durch Kettenbrüche (das schnell bezieht sich dann auf die Anzahl
+der Brüche). Betrachten wir beispielsweise ein zweidimensionales System, so ist das irrationalste
+Frequenzverhältnis der goldene Schnitt $\mu=\frac{1+\sqrt{5}}{2}$, da dessen Kettenbruchzerlegung folgendermaßen
+aussieht:
+\begin{equation}
+\mu= 1 + \cfrac{1}{1
+	+ \cfrac{1}{1
++ \cfrac{1}{1 + \cdots}}}
+\end{equation}
+%\bibliographystyle{plain}
 \bibliography{KAM}
 \end{document}

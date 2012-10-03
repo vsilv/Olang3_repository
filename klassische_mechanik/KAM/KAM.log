@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.7.31)  29 SEP 2012 21:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.7.31)  3 OCT 2012 17:02
 entering extended mode
  %&-line parsing enabled.
 **KAM.tex
@@ -513,7 +513,16 @@ Package: geometry 2008/12/21 v4.2 Page Geometry
 )
 (/usr/share/texmf-texlive/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (./KAM.aux)
+)
+Runaway argument?
+{\small {Störungstheorie - KAM-Theorem} \renewcommand {\headrulewidth \ETC.
+! Paragraph ended before \f@ncyhf was complete.
+<to be read again> 
+                   \par 
+l.42 
+     
+? 
+(./KAM.aux)
 \openout1 = `KAM.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
@@ -530,8 +539,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 54.
-
-(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+ (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 54.
@@ -637,12 +645,7 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./KAM.toc
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 4.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 4.
-)
+(./KAM.toc)
 \tf@toc=\write5
 \openout5 = `KAM.toc'.
 
@@ -657,44 +660,70 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.79 \newpage
-              [1] <Beispielbild.jpg, id=35, 979.66pt x 602.25pt>
-File: Beispielbild.jpg Graphic file (type jpg)
+l.78 \newpage
+              [1]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 86.
 
-<use Beispielbild.jpg>
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 91.
- (/usr/share/texmf-texlive/tex/latex/base/t1cmss.fd
-File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-(./KAM.bbl)pdfTeX warning (ext4): destination with the same identifier (name{pa
-ge.1}) has been already used, duplicate ignored
+
+LaTeX Warning: Citation `Tabor' on page 1 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Knauf' on page 1 undefined on input line 106.
+
+
+Overfull \hbox (107.82907pt too wide) detected at line 133
+\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 I[]\OT1/cmr/m/n/12 ) = []
+ +\OML/cmm/m/it/12 ^^O[][][][] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^O[][][][][]
+ \OT1/cmr/m/n/12 + [] + \OML/cmm/m/it/12 ^^O [] \OT1/cmr/m/n/12 +\OML/cmm/m/it/
+12 ^^O[][][][][] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^O[][][][][] \OT1/cmr/m/n/
+12 + []
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.101 \end{document}
-                     [1 <./Beispielbild.jpg>] (./KAM.aux) ) 
+l.140 \end{equation*}
+                      [1]
+
+LaTeX Warning: Citation `Wimberger' on page 2 undefined on input line 198.
+
+[2] (./KAM.bbl [3]) [4] (./KAM.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 9768 strings out of 493848
- 135873 string characters out of 1152823
- 242414 words of memory out of 3000000
- 12801 multiletter control sequences out of 15000+50000
- 26553 words of font info for 82 fonts, out of 3000000 for 9000
+ 9749 strings out of 493848
+ 135174 string characters out of 1152823
+ 257414 words of memory out of 3000000
+ 12780 multiletter control sequences out of 15000+50000
+ 25332 words of font info for 81 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,11n,73p,269b,436s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fo
-nts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-fbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-rm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on KAM.pdf (3 pages, 268700 bytes).
+ 38i,12n,52p,269b,440s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/
+fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+mi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmsy6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msb
+m10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx24
+88.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/t
+exmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/pub
+lic/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti120
+0.pfb>
+Output written on KAM.pdf (6 pages, 239726 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
- 30 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
