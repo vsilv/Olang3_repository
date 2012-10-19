@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc} %Zeichensatz
+\usepackage{amsmath} %mathematische Normen
+\usepackage{ngerman} %neue deutsche Rechtschreibung und Formelsatz
+\usepackage{amsfonts} %Zusätzliche Formeln/Symbole/Sonderzeichen...
+\usepackage{amssymb} %Formelsatz
+\usepackage{graphicx} %Einbinden von Graphiken
+\usepackage{float} %Flussumgebungen
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+\title{Bifurkationen, Chaos und Fraktale}
+\author{Veit Lüschow}
+\begin{document}
+\maketitle
+
+\section{Einleitung}
+Es wird an Hand einer einfachen, eindimensionalen Abbildung ein möglicher \textit{Weg ins Chaos} über die Variation eines Parameters gezeigt. Eine Erhöhung des Parameters führt hierbei sukzessive zu Periodenveropplungen, genannt Bifurkationen. In diesem Prozess strebt die Anzahl der Perioden gegen Unendlich, was den Eintritt des Systems in einen chaotischen Zustand kennzeichnet. Die in Abhängigkeit vom Parameter auftretenden Bifurkationen lassen sich im Feigenbaumdiagramm veranschaulichen, was in seiner Struktur auf Selbstähnlichkeit, das heißt eine faraktale Struktur hindeutet. 
+
+\section{Die Logistische Abbildung}
+Die Logistische Abbildung wurde 1837 vom Biologen Pierre François Verhulst zur Beschreibung der Entwicklung einer Population von Lebewesen eingeführt. 
+\begin{equation}
+ x_{n+1} = x_nr(1-x_n) = f(x)
+ \label{eq:log}
+\end{equation}
+Die Abbildung lässt sich vielfach hintereinander ausführen, um die Größe einer Population in der Generation $n$ zu berechen. Zu Beginn der Berechnung muss ein Startwert $x_0$ vorgegeben werden. 
+In der normierten Form dieser Abbildung (\ref{eq:log}) beschreibt $x_{n+1}$ die vorraussichtliche Größe der Population in der nächsten Generation, während $x_n$ die Größe der aktuellen Generation darstellt. Der oben genannte Parameter tritt hier als $r$ auf und versammelt verschiedene Eigenschaften der Population, die ihre Entwicklung beeinflussen, wie ihre Vermehrungsfähigkeit oder die Qualität der vorhandenen Nahrung. Die maximale Populationsgröße im normierten Fall ist 1. \\
+Die Größe der nächsten Generation ist also proportional zu den vorhandenen Lebewesen ($x_n$), sowie zum Faktor $(1-x_n)$, der beschränkend wirkt. Man kann ihn zum Beispiel als übrigbleibenden Platz interpretieren. \\
+Die Werte $x_n$ sind für das Intervall $[0,1]$ und der Wert $r$ für das Intervall $[0,4]$ definiert. 
+Die Logistische Abbildung beschreibt ein nichtlineares, dynamisches System und ist auf Grund ihrer Einfachheit auch analytisch untersuchbar. Trotz ihrer Einfachheit kann sie chaotisches Verhalten zeigen.
+\section{Fixpunktanalyse}
+Ein Fixpunkt $n$-ter Ordnung ist definiert als:
+\begin{equation}
+ f^n(x^*)=x^*,
+\end{equation}
+wobei $f^n$ die $n$-fache Ausführung der Abbildung beschreibt. Ein Fixpunkt $n$-ter Ordnung ist immer gleichzeit auch Fixpunkt jeder höherung Ordnung $n+i$ mit $i \epsilon \mathbb{N} $\\
+Das Iterationsverhalten der Abbildung ist stark abhängig von der Größe des Parameters $r$. \\Für $r \epsilon [0,1]$ befindet sich ein stabiler Fixpunkt bei $x^*_0 = 0$. Das heißt, dass die Population nach einer gewissen Zeit mit Sicherheit aussterben wird, falls der Wert für $r$ gering ist, falls die Lebewesen also unter geringer Fruchtbarkeit oder schlechtem Futter leiden. \\
+Für $r \epsilon [1,3]$ entsteht einer neuer stabiler Pixpunkt bei $x^*_1 = 1-1/r$ und der vormals stabile Fixpunkt $x^*_0$ wird instabil. Bei weiterer Erhöhung des Paramters, also für $r \epsilon [3,3.45]$ wird auch $x^*_1$ instabil und es entstehen die stabilen Fixpunkte zweiter Ordnung $x^*_{2,3}$. Bei enem kritischen Wert $r_1=3$ findet also eine Bifurkation statt, die Verdopplung der Periode von $1$ auf $2$. 
+\begin{figure}[H]
+\centering
+\subfloat {\includegraphics[width=6cm]{log_r20.JPG}}
+\hspace{1cm}
+\subfloat {\includegraphics[width=6cm]{log_r32.JPG}}
+\caption{Bifurkation bei Erhöhung des Parameterwertes über einen kritischen Wert $r_1=3$ \cite{lit1}.}
+\label{fig:bif1}
+\end{figure}
+\section{Feigenbaumdiagramm}
+Das wichtigste Ergebnis der Untersuchung der logistischen Abbildung ist das Feigenbaumdiagramm. Es stellt einen Zusammenhang zwischen den stabilen Fixpunkten des dynamischen Systems und dem Parameterwert $r$ her.\\
+Neben dem oben genannten Parameterwert $r_1$ existieren weitere kritische Parameterwerte $r_i$, bei denen Bifurkationen stattfinden, wobei der Abstand zwischen zwei aufeinanderfolgenden kritischen Werten von $r$ stets kleiner wird und das Verhältnis zweier aufeinanderfolgender Abstände auf die Feigenbaumkonstante
+\begin{equation}
+\delta = \lim\limits_{n \rightarrow \infty}{\frac{(r_{k-1}-r_{k-2})}{(r_k-r_{k-1})}} \approx 4,67
+\label{eq:delta}
+\end{equation}
+führt. 
+Während sich die ersten Periodenverdopplungen noch bequem analytisch untersuchen lassen, sind für größere Werte von $r$ numerische Rechnungen notwendig.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{feigenbaum.JPG}
+\caption{Feigenbaumdiagramm \cite{lit2}.}
+\end{figure}
+Die Feigenbaumkonstante veranschaulicht eine Regelmäßigkeit im Auftreten der Bifurkationen und charakterisiert die Selbstähnlichkeit im Feigenbaumdiagramm. Die Bildung zweier neuer stabiler Fixpunkte bei gleichzeigter Instabilwerdung eines vormals stabilen Fixpunktes lässt sich in beliebig großen oder kleinen Maßstäben im Diagramm beobachten. Es zeigt eine fraktale Stuktur, die eine Dimension zwischen $0$ und $1$ besitzt. \\
+Zudem konvergiert die Folge der $r_i$ gegen einen Wert $r_\infty \approx 3,569$, bei ein Übergang des Systems in den chaotischen Zustand stattfindet. Dann befindet sich das System in einem Orbit unendlicher Periode, sodass sich sich keine Regelmäßigkeit mehr feststellen lässt. \\
+Im chaotischen Zustand zeigt das System eine hohe Sensibilität gegenüber Anfangsbedingungen.
+
+\begin{thebibliography}{}
+\bibitem[1]{lit1} Skript Nichtlineare Dynamik (WS 2001/2002) von Prof. Dr. M. Brack, Universität Regensburg
+\bibitem[2]{lit2} Skript Nonlinear Dynamics and Quantum Chaos (2012) von S. Wimberger, Universität Heidelberg
+\bibitem[2]{lit3} H.G. Schuster, W. Just, Deterministisches Chaos (VCH-Wiley)
+
+
+\end{thebibliography}
+
+
+\end{document}
+
+
+
+
+
