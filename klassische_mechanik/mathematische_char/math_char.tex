@@ -1,0 +1,128 @@
+%Schriftgr{\"o}{\ss}e, Layout, Papierformat
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[latin1]{inputenc}   %Umlaute erm{\"o}glichen
+\usepackage[ngerman]{babel} %deutsches Paket
+
+\usepackage{amssymb}%Mathemodus
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage[T1]{fontenc}
+\usepackage{bm}% bold math
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{graphics}
+\usepackage{psfrag}
+\usepackage[bf,small,sf]{caption}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{rotating}
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+%Seite einrichten
+\usepackage[left=2cm,right=3cm,top=2cm,bottom=2cm,includeheadfoot]{geometry}
+\parindent0mm % Unterdr{\"u}ckt die Absatzeinr{\"u}ckung
+%Kopf- und Fu{\ss}zeilen
+\usepackage{fancyhdr}                   %Paket f{\"u}r Kopf- und Fusszeile
+\usepackage[section]{placeins}
+\pagestyle{fancy} \fancyhf{}
+%Kopfzeile
+\fancyhead[L]{\small{\nouppercase{\leftmark}}}%
+\fancyhead[R]{\small{Mathematische Charakterisierung von Chaos}
+%Linie oben
+\renewcommand{\headrulewidth}{0.5pt}
+%Fußzeile
+\fancyfoot[C]{\small{\thepage}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ein paar Farben definieren
+\definecolor{lightblue}{rgb}{0.3,0.85,1}
+%Kommentarfunktion
+\newcommand{\jnote}[1]{\tex_tcolor{red}{\tex_tit{[J: #1]}}}
+\newcommand{\vnote}[1]{\tex_tcolor{blue}{\tex_tit{[V: #1]}}}
+\newcommand{\fnote}[1]{\tex_tcolor{lightblue}{\tex_tit{[F: #1]}}}
+\newcommand{\tnote}[1]{\tex_tcolor{green}{\tex_tit{[T: #1]}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Dokumentbeginn
+\begin{document}
+
+%Titelseite
+\begin{titlepage}
+\begin{center}
+\begin{large}
+\begin{tabular}{ll}\\\\\\
+\multicolumn{2}{p{14.0cm}}{\centering \huge\bf Mathematische Charakterisierung von Chaos
+}\\[20mm]
+\hline \\
+\textbf{Name}:    & Annabelle Junger\\[6mm]
+\textbf{Datum:}   & \today\\[5mm] %oder \today
+
+\hline \\[35mm]
+
+\end{tabular}
+
+\end{large}
+\end{center}
+\end{titlepage}
+
+\newpage
+%Inhaltsverzeichnis
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+\part{Wahloser Text}
+\section{Definition eines dynamischen Systems}
+Ein dynamisches System ist eine mathematische Beschreibung einer Zustandsveränderung nach der Zeit,
+formal ausgedrückt ein Tripel $(X, T, f)$ mit
+\begin{itemize}
+	\item $X =$ Zustandsraum; d.h. eine nichtleere Menge, genauer ein metrischer Raum mit Metrik $d$, 
+		bestehend aus den Elementen, die sich mit der Zeit verändern; 
+z.B. Geldbeträge auf einem Sparbuch $ X = \mathbb{R}_{0}^{+}$
+\item $T =$ Zeitraum; d.h. eine der Mengen, innerhalb derer sich jene Elemente von oben entweder nach
+diskreten Zeitschritten verändern oder ansonsten kontinuierlich; 
+hier: jedes volle Jahr: $T = \mathbb{N}$
+\item $f: T \times X \rightarrow X$,  $(t, x)\rightarrow ft(x) =$ stet. Funktion, nach der sich diese
+ Elemente verändern; hier: Multiplikation
+mit 1,1 bei Zinssatz von $10\% \rightarrow f: \mathbb{N} \times \mathbb{R} \rightarrow \mathbb{R}_{0}^{+}$,
+$ (n, r) \rightarrow  (1,1)^{n}r$ 
+\item Dabei gilt:
+	\begin{itemize}
+		\item $ f(0, x) = f_0(x) = x$
+		\item $ f(n, (f(m, x))) = f^n(f^m(x)) = f^{m+n}(x)$   für alle $x$ aus $X$ und $m$, $n$ aus $T$
+	\end{itemize}
+\end{itemize}
+\section{Definition von Chaos}
+Ein dynamisches System $(X, T, f)$ ist genau dann chaotisch, wenn folgende Bedingungen gelten
+(wobei die ersten beiden die letzte, für das Chaos als essentiell betrachtete Eigenschaft implizieren):
+\begin{itemize}
+	\item Dichtheit der periodischen Punkte von $f$ in $X$; d.h., für alle $x$ aus $X$ existiert ein periodisches $y$  aus
+$X$ beliebig nahe an $x$ (in Bezug auf die Metrik $d$)
+\item Transitivität von $f$; d.h., für alle $x$, $y$ aus $X$ existiert ein $z$ beliebig nahe an $x$, dessen Orbit
+beliebig nahe an dem von $y$ liegt
+\item Sensibilität von $f$; d.h., für alle $x$ aus $X$ existiert ein $y$ aus $X$ beliebig nahe an x, so dass deren
+Orbits an einer Stelle um einen Mindestwert voneinander differieren
+\end{itemize}
+\section{Definitionen versch. Orbits}
+Der Orbit eines Elements aus der Zustandsmenge eines dynamischen Systems beschreibt dessen Veränderung nach
+der Zeit. Er wird als Folge $(x_t)$ mit $x_t = f(t, x)$ verstanden, etwa $(x, f(x), f_2(x), f_3(x), ...)$.
+Dabei unterscheidet man:
+\begin{itemize}
+	\item gemischt p-periodische Orbits, falls $p$, $t$ aus $T$ existieren, so dass $f_p(x_t) = x_t$ ; etwa
+		$ (x_0, x_1, x_2, ..., x_t, x_{t+1}, {x_t}, x_{t+1}, ...)$ hier:$ p = 2$
+$x_t$ nennt man in dem Falle einen periodischen Punkt
+\item p-periodische Orbits, falls $t = 0$; etwa $ (x_0, x_1, x_0, x_1, ...)$ hier: $p = 2$
+\item gemischte Fixpunktfolgen, falls $p = 1$; etwa $(x_0, x_1, x_2, x_3, x_3, x_3, ...)$ hier: $t = 3$
+\\ $x_3$ nennt man in dem Falle einen Fixpunkt
+\item Fixpunktfolgen, falls $t = 0$ und $p = 1$; etwa $(x_0, x_0, x_0, ...)$ 
+\item Konvergente Orbits, falls dessen Folgeglieder gegen einen bestimmten Wert aus $X$ konvergieren;
+ etwa $(256, 16, 4, 2, 1.414, 1.189, 1.091, 1.044, ...) \rightarrow  1$
+\item Chaotische Orbits sonst
+	\end{itemize}
+\end{document}

@@ -1,0 +1,5 @@
+\select@language {ngerman}
+\contentsline {part}{I\hspace {1em}Wahloser Text}{1}{part.1}
+\contentsline {section}{\numberline {1}Definition eines dynamischen Systems}{1}{section.1}
+\contentsline {section}{\numberline {2}Definition von Chaos}{1}{section.2}
+\contentsline {section}{\numberline {3}Definitionen versch. Orbits}{1}{section.3}
