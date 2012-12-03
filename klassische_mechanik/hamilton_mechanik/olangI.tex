@@ -1,0 +1,61 @@
+\documentclass[]{article}
+\usepackage[ngerman]{babel} 				
+\usepackage[utf8]{inputenc} 
+
+
+\begin{document}
+
+
+\title{Charakterisierung nichtlinearer (Hamiltonscher) Systeme}
+\author{Janne Soetbeer}
+\date{25. November 2012}
+\maketitle
+\newpage
+\section{Klassische Mechanik}
+\subsection{Newton und Lagrange}
+In der klassischen Mechanik nach Newton beruht eine Systembeschreibung auf Ort und Geschwindigkeit eines Partikels als Funktion der Zeit. Dabei wird die Mechanik eines Teilchens durch Kr"afte bestimmt. Sodass eine Kraft die Ursache der Bewegung eines K"orpers entlang der Zeitachse darstellt. Diese Betrachtungsweise kann jedoch lediglich auf Initialsysteme verwendet werden. 
+\\
+Das Hamiltonsche Systeme baut hingegen auf dem Prinzip der kleinsten Wirkung auf. Dabei wird ein System immer den Weg der kleinsten Wirkung w"ahlen um von Zustand $x_0$ in den Zustand $x_1$ zu gelangen. Der Vorteil des Wirkungsprinzip beruht darauf, dass dieses unabhängig von einem Koordinatensystem gilt.
+\\
+Betrachten wir alle möglichen Wege eines Teilchens zwischen zwei festen Zuständen $x_0$ und $x_1$, so kann das Wirkungsintegral für die Funktion L wie folgt formuliert werden: 
+\\
+\newline
+$\delta\int_{t_0}^{t_1} L(x,x',t) dt = 0$ \\
+\newline
+Dabei beschreibt die Lagrangefunktion $L(x,x',t)$ das System. \\
+Nun werden die verschieden möglichen Bahnvorläufe durch Variation von Ort und Impuls mathematisch beschrieben.  
+\newline
+\\
+$\int_{t_0}^{t_1} L(x+h,x'+h',t)-L(x, x', t) dt = 0$
+\\
+\newline
+Mithilfe der Lagrange-Gleichung kann also die Funktion $L(x,x',t)$ und somit die Wirkung minimiert werden. 
+\newline
+\\
+$\frac{dL}{dx} - \frac{dL}{dt} \left(\frac{dL}{dx`}\right)= 0 $
+\\
+\newline
+Diese Gleichung ermöglicht es nun ein beschreibendes Gleichungssystem aufzustellen, das es zu lösen gilt, um die Mechanik von Teilchen beschreiben zu können. 
+\\
+\newline
+\subsection{Hamilton}
+Mithilfe der Legrendre Transformation gelangt man von der Lagrangedarstellung in die Hamiltonsche Darstellung eines mechanischen Systems. Dabei erreicht eine Transformation die Darstellung derselben Bewegungskurve durch andere Variablen. \\
+Somit überführt die Legrendre Transformation ein zu lösendes Problem aus dem Konfigurationsraum in den Phasenraum.
+\\
+\newline
+$L(x,x`,t)\longrightarrow H(x,p,t)$, wobei $p$ der konjugierte Impuls p=$\frac{dL}{dx`}$ sei. 
+\newline
+\\
+Damit erhalten wir nun die Hamiltonfunktion $H(x,p,t)$, für welche aufgrund der vorher eingeführten Lagrangegleichung, folgende Hamiltonschen Bewegungsgleichungen gelten: 
+\newline
+\\
+$x`= \frac{\partial H}{\partial p}$, $p`= -\frac{\partial H}{\partial x}$
+\newline
+\\
+Der Phasenraum, in dem die Hamiltongleichung lebt, wird also charakterisiert durch $x_n$ und $p_n$ aller n betrachteten Teilchen. 
+\\
+Der Vorteil des Hamiltonformalismus beruht nun darauf, dass es eine Reihe von Tranformationen gibt, die uns die mathematisch Beschreibung eines Problems erleichtert und nach welcher die Hamiltongleichung erhalten bleibt. Eine solche Transformation wird auch eine \textit{kanonische Transformation} genannt.  
+\\
+\newline
+Im nächsten Schritt muss eine solche kanonische Transformation gefunden werden. Dazu wird eine \textit{erzeugende Funktion} benötigt. 
+\end{document}
